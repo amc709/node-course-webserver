@@ -72,6 +72,12 @@ app.get('/about', (req, resp) => {
   });
 });
 
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle:  'Projects Page'
+  })
+});
+
 app.get('/bad', (req,resp) => {
   resp.send({
     errorMessage: 'Bad Request. Cannot bring up the page.'
