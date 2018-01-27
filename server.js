@@ -4,6 +4,10 @@ const fs = require('fs');
 // HandbleBars - cf. http://npmjs/package/hbs
 const hbs = require('hbs');
 
+// Heroku will set this port number as an environment variable
+// when the app is running in Heroku.
+const port = process.env.PORT || 3000;
+
 var app = express();
 
 // Tell HandbleBars to add support for partials.
@@ -53,8 +57,9 @@ app.get('/', (req, resp) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("Web server is up and running ...")
+// Use the port set by Heroku
+app.listen(port, () => {
+  console.log(`Web server is up and running on port ${port} ...`)
 });
 
 
